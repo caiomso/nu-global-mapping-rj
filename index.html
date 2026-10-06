@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<script>
+  (function() {
+    const SENHA_CORRETA = "RiodeJaneiro2026!"; // Altere para a senha que desejar
+    
+    // Verifica se já fez login nesta sessão
+    if (sessionStorage.getItem("authenticated") !== "true") {
+      let tentativa = prompt("Esta página é privada. Digite a senha para acessar:");
+      if (tentativa === SENHA_CORRETA) {
+        sessionStorage.setItem("authenticated", "true");
+      } else {
+        alert("Senha incorreta!");
+        document.write("<h1 style='font-family:sans-serif; text-align:center; margin-top:20%;'>Acesso Negado</h1>");
+        window.stop();
+      }
+    }
+  })();
+</script>
   <title>Nu Global Mapping — Rio de Janeiro</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
